@@ -5,15 +5,15 @@ function palindromeTester() {
     let phrase = new Phrase(userInput);
 
     if(!!userInput  && phrase.isPalindrome() === true) {
-        alert(`"${phrase.content}" is a palindrome!!`);    
+        alert(`"${phrase.content}" is a slick!!`);    
     } else {
         alert(`"${phrase.content}" is not a palindrome!!`)
     }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    let button = document.querySelector("#palindromeTester");
-    button.addEventListener("click", function () {
+    let form = document.querySelector("#palindromeTester");
+    form.addEventListener("submit", function () {
         palindromeTester();
     });
 });
