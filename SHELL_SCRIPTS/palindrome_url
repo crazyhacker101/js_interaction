@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+let urllib = require('urllib');
+let Phrase = require('harbinger-complex-palindrome-detector');
+let url = 'https://cdn.learnenough.com/phrases.txt';
+
+urllib.request(url, {followRedirect: true}, function(err, data, res) {
+
+    let body = data.toString();
+    let lines = body.split("\n");
+
+    let palindromes = lines.filter(line => {
+        let phrase = new Phrase(line);
+        if(phrase.isPalindrome()) {
+            return line;
+        }
+    });
+
+    palindromes.forEach(line => {
+        console.log("Palindrome detected: ", line);
+    });
+
+    // if (err) {
+    //     throw err; // you need to handle error
+    // }
+    // console.log(res.statusCode);
+    // console.log(res.headers);
+
+});
